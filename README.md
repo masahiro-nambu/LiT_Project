@@ -28,7 +28,7 @@
 冷静になる・食欲が抑えられる青色。
 
 ##6. シンボル
-![app_simbol](app__simbol)
+![app_simbol](app_simbol)
 
 
 ##7. 画面一覧
