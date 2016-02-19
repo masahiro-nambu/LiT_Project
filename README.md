@@ -39,7 +39,7 @@ https://prottapp.com/p/83438b
 ##8. 類似サービス
 -Wunderkust
 タスクの共有、コメント、リマインダ、期日設定ができる。スマホ（iOS、Android）、PC（Mac、Windows）、タブレットなどからも利用可能。  
-*Trello
+-Trello
 タスクをビジュアル化しやすい。  
 -Nozbe  
 -Todolist
