@@ -8,7 +8,9 @@
 
 import UIKit
 
-class PhotoViewController: UIViewController {
+class PhotoViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+    var photoImageViewData: NSUserDefaults = NSUserDefaults.standardUserDefaults()
+    @IBOutlet var photoImageView: UIImageView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,7 +23,48 @@ class PhotoViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    func presentPickerController(sourceType: UIImagePickerControllerSourceType) {
+        if UIImagePickerController.isSourceTypeAvailable(sourceType) {
+        
+        let picker = UIImagePickerController()
+        
+        picker.sourceType = sourceType
+        
+        picker.delegate = self
+        
+        self.presentViewController(picker, animated: true, completion: nil)
+        }
+    }
+    
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: NSDictionary!) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+        photoImageView.image = image
+        
+        let photoData = UIImagePNGRepresentation(image)
+        photoImageViewData.setObject(photoData, forKey: "Image")
+        
+    }
+    
+    @IBAction func selectButtonTapped(sender: UIButton) {
+        let alertController = UIAlertController(title: "画像の取得先を選択", message: nil, preferredStyle: .ActionSheet)
+        
+        let firstAction = UIAlertAction(title: "カメラ", style: .Default) {
+            action in
+            self.presentPickerController(.Camera)
+        }
+        let secondAction = UIAlertAction(title: "アルバム", style: .Default) {
+            action in
+            self.presentPickerController(.PhotoLibrary)
+        }
+        let cancelAction = UIAlertAction(title: "キャンセル", style: .Cancel, handler: nil)
+        
+        alertController.addAction(firstAction)
+        alertController.addAction(secondAction)
+        alertController.addAction(cancelAction)
+        
+        presentViewController(alertController, animated: true, completion: nil)
+    }
+    
     /*
     // MARK: - Navigation
 

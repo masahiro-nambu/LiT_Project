@@ -28,16 +28,11 @@ class AddTaskViewController: UIViewController {
     }
     
     @IBAction func saveTask() {
-        //let taskList = [taskTextField1.text!, taskTextField2.text!, taskTextField3.text!]
-        
-        
         taskArray.append(taskTextField1.text!)
         taskArray.append(taskTextField2.text!)
         taskArray.append(taskTextField3.text!)
         taskData.setObject(taskArray, forKey: "Task")
         taskData.synchronize()
-        
-        print(taskData.arrayForKey("Task"))
     }
     
     

@@ -7,11 +7,13 @@
 //
 
 import UIKit
+import Social
 
 class TaskListViewController: UIViewController {
     @IBOutlet var taskLabel1: UILabel!
     @IBOutlet var taskLabel2: UILabel!
     @IBOutlet var taskLabel3: UILabel!
+    @IBOutlet var registeredView: UIImageView!
     
     @IBOutlet var doneTaskButton1: UIButton!
     @IBOutlet var doneTaskButton2: UIButton!
@@ -19,9 +21,12 @@ class TaskListViewController: UIViewController {
     
     var taskArray: [AnyObject] = []
     var doneTask1: Bool = false
-    var doneTask2:Bool = false
-    var doneTask3:Bool = false
+    var doneTask2: Bool = false
+    var doneTask3: Bool = false
+    var timer: NSTimer!
     let saveData = NSUserDefaults.standardUserDefaults()
+    
+//    var photoImageViewData: NSUserDefaults
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,10 +41,16 @@ class TaskListViewController: UIViewController {
                 taskArray.append(taskList as! NSString)
             }
             
-            taskLabel1.text = taskArray[0] as! String
-            taskLabel2.text = taskArray[1] as! String
-            taskLabel3.text = taskArray[2] as! String
+            taskLabel1.text = taskArray[0] as? String
+            taskLabel2.text = taskArray[1] as? String
+            taskLabel3.text = taskArray[2] as? String
         }
+        
+        registeredView.image = showRegisteredImage()
+        start()
+        
+//        let photoImage = photoImageViewData.dataForKey("Image")
+        
         
         // Do any additional setup after loading the view.
     }
@@ -54,6 +65,31 @@ class TaskListViewController: UIViewController {
         if saveData.arrayForKey("TASK") != nil {
             taskArray = saveData.arrayForKey("TASK")!
         }
+    }
+    
+    //SNSに投稿するメソッド(FacebookかTwitterのソースタイプが引数)
+    func postToSNS(serviceType: String) {
+        let photoImageView = showRegisteredImage()
+        
+        //SLComposeViewControllerのインスタンス化し、serviceTypeを指定
+        let myComposeView = SLComposeViewController(forServiceType: serviceType)
+        
+        //投稿するテキストを指定
+        myComposeView.setInitialText("PhotoMasterからの投稿")
+        
+        //投稿する画像を指定
+        myComposeView.addImage(photoImageView)
+        
+        //myComposeViewの画面遷移
+        self.presentViewController(myComposeView, animated: true, completion: nil)
+    }
+    
+    func showRegisteredImage() -> UIImage{
+        
+        let data: NSData = saveData.objectForKey("Image") as! NSData
+        let image: UIImage = UIImage(data: data)!
+        
+        return image
     }
     
     @IBAction func finishTask1() {
@@ -78,6 +114,18 @@ class TaskListViewController: UIViewController {
         }
         doneTaskButton3.hidden = true
         taskLabel3.hidden = true
+    }
+    
+    
+    func start() {
+        timer = NSTimer.scheduledTimerWithTimeInterval(86400, target: self, selector: nil, userInfo: nil, repeats: true)
+        timer.fire()
+    }
+    
+    func checkDone() {
+        if doneTask1 == false || doneTask2 == false || doneTask3 == false {
+            
+        }
     }
 
     
