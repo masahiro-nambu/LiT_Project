@@ -11,10 +11,11 @@ import UIKit
 class PhotoViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
     var photoImageViewData: NSUserDefaults = NSUserDefaults.standardUserDefaults()
     @IBOutlet var photoImageView: UIImageView!
+    @IBOutlet var nextButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        nextButton.hidden = true
         // Do any additional setup after loading the view.
     }
 
@@ -63,6 +64,7 @@ class PhotoViewController: UIViewController, UINavigationControllerDelegate, UII
         alertController.addAction(cancelAction)
         
         presentViewController(alertController, animated: true, completion: nil)
+        nextButton.hidden = false
     }
     
     /*

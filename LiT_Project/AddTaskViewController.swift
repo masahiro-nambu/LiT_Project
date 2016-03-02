@@ -12,12 +12,15 @@ class AddTaskViewController: UIViewController {
     @IBOutlet var taskTextField1: UITextField!
     @IBOutlet var taskTextField2: UITextField!
     @IBOutlet var taskTextField3: UITextField!
+    @IBOutlet var nextButton: UIButton!
     
     var taskArray: [AnyObject] = []
     let taskData: NSUserDefaults = NSUserDefaults.standardUserDefaults()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        nextButton.hidden = true
 
         // Do any additional setup after loading the view.
     }
@@ -33,6 +36,8 @@ class AddTaskViewController: UIViewController {
         taskArray.append(taskTextField3.text!)
         taskData.setObject(taskArray, forKey: "Task")
         taskData.synchronize()
+        
+        nextButton.hidden = false
     }
     
     

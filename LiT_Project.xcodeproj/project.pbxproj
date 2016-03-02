@@ -17,6 +17,7 @@
 		EC9861D91C782E3400C4821C /* AddTaskViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9861D81C782E3400C4821C /* AddTaskViewController.swift */; };
 		EC9861DB1C782E6E00C4821C /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9861DA1C782E6E00C4821C /* PhotoViewController.swift */; };
 		EC9861E51C783F2200C4821C /* TaskListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EC9861E41C783F2200C4821C /* TaskListViewController.swift */; };
+		EC996A631C86924800D16EA5 /* after.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = EC996A621C86924800D16EA5 /* after.mp3 */; };
 		ECE5FA1E1C83C10700638979 /* アプリタイトル.jpg in Resources */ = {isa = PBXBuildFile; fileRef = ECE5FA1D1C83C10700638979 /* アプリタイトル.jpg */; };
 /* End PBXBuildFile section */
 
@@ -54,6 +55,7 @@
 		EC9861D81C782E3400C4821C /* AddTaskViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTaskViewController.swift; sourceTree = "<group>"; };
 		EC9861DA1C782E6E00C4821C /* PhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 		EC9861E41C783F2200C4821C /* TaskListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TaskListViewController.swift; sourceTree = "<group>"; };
+		EC996A621C86924800D16EA5 /* after.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = after.mp3; sourceTree = "<group>"; };
 		ECE5FA1D1C83C10700638979 /* アプリタイトル.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "アプリタイトル.jpg"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -105,6 +107,7 @@
 		EC9861A91C7826D700C4821C /* LiT_Project */ = {
 			isa = PBXGroup;
 			children = (
+				EC996A621C86924800D16EA5 /* after.mp3 */,
 				ECE5FA1D1C83C10700638979 /* アプリタイトル.jpg */,
 				EC9861AA1C7826D700C4821C /* AppDelegate.swift */,
 				EC9861AC1C7826D700C4821C /* ViewController.swift */,
@@ -248,6 +251,7 @@
 				EC9861B51C7826D700C4821C /* LaunchScreen.storyboard in Resources */,
 				EC9861B21C7826D700C4821C /* Assets.xcassets in Resources */,
 				EC9861B01C7826D700C4821C /* Main.storyboard in Resources */,
+				EC996A631C86924800D16EA5 /* after.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

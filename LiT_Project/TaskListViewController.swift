@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import Social
+import AVFoundation
 
 class TaskListViewController: UIViewController {
     @IBOutlet var taskLabel1: UILabel!
@@ -22,10 +22,19 @@ class TaskListViewController: UIViewController {
     var taskArray: [AnyObject] = []
     let saveData = NSUserDefaults.standardUserDefaults()
     
-//    var photoImageViewData: NSUserDefaults
+    var audioPlayer: AVAudioPlayer!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let soundFilePath = NSBundle.mainBundle().pathForResource("after", ofType: "mp3")!
+        let fileURL = NSURL(fileURLWithPath: soundFilePath)
+        
+        do {
+            audioPlayer = try AVAudioPlayer(contentsOfURL: fileURL)
+        }catch {
+            print("ファイルを読み込めませんでした。")
+        }
         
         if ((saveData.arrayForKey("Task")) != nil){
             
@@ -73,16 +82,19 @@ class TaskListViewController: UIViewController {
     @IBAction func finishTask1() {
         doneTaskButton1.hidden = true
         taskLabel1.hidden = true
+        audioPlayer.play()
     }
     
     @IBAction func finishTask2() {
         doneTaskButton2.hidden = true
         taskLabel2.hidden = true
+        audioPlayer.play()
     }
     
     @IBAction func finishTask3() {
         doneTaskButton3.hidden = true
         taskLabel3.hidden = true
+        audioPlayer.play()
     }
     /*
     // MARK: - Navigation
