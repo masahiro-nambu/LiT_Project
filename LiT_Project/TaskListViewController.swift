@@ -20,10 +20,6 @@ class TaskListViewController: UIViewController {
     @IBOutlet var doneTaskButton3: UIButton!
     
     var taskArray: [AnyObject] = []
-    var doneTask1: Bool = false
-    var doneTask2: Bool = false
-    var doneTask3: Bool = false
-    var timer: NSTimer!
     let saveData = NSUserDefaults.standardUserDefaults()
     
 //    var photoImageViewData: NSUserDefaults
@@ -47,7 +43,6 @@ class TaskListViewController: UIViewController {
         }
         
         registeredView.image = showRegisteredImage()
-        start()
         
 //        let photoImage = photoImageViewData.dataForKey("Image")
         
@@ -67,23 +62,6 @@ class TaskListViewController: UIViewController {
         }
     }
     
-    //SNSに投稿するメソッド(FacebookかTwitterのソースタイプが引数)
-    func postToSNS(serviceType: String) {
-        let photoImageView = showRegisteredImage()
-        
-        //SLComposeViewControllerのインスタンス化し、serviceTypeを指定
-        let myComposeView = SLComposeViewController(forServiceType: serviceType)
-        
-        //投稿するテキストを指定
-        myComposeView.setInitialText("PhotoMasterからの投稿")
-        
-        //投稿する画像を指定
-        myComposeView.addImage(photoImageView)
-        
-        //myComposeViewの画面遷移
-        self.presentViewController(myComposeView, animated: true, completion: nil)
-    }
-    
     func showRegisteredImage() -> UIImage{
         
         let data: NSData = saveData.objectForKey("Image") as! NSData
@@ -93,42 +71,19 @@ class TaskListViewController: UIViewController {
     }
     
     @IBAction func finishTask1() {
-        if doneTask1 == false {
-            doneTask1 = true
-        }
         doneTaskButton1.hidden = true
         taskLabel1.hidden = true
     }
     
     @IBAction func finishTask2() {
-        if doneTask1 == false {
-            doneTask2 = true
-        }
         doneTaskButton2.hidden = true
         taskLabel2.hidden = true
     }
     
     @IBAction func finishTask3() {
-        if doneTask3 == false {
-            doneTask3 = true
-        }
         doneTaskButton3.hidden = true
         taskLabel3.hidden = true
     }
-    
-    
-    func start() {
-        timer = NSTimer.scheduledTimerWithTimeInterval(86400, target: self, selector: nil, userInfo: nil, repeats: true)
-        timer.fire()
-    }
-    
-    func checkDone() {
-        if doneTask1 == false || doneTask2 == false || doneTask3 == false {
-            
-        }
-    }
-
-    
     /*
     // MARK: - Navigation
 
