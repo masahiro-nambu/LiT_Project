@@ -27,8 +27,8 @@ class TaskListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let soundFilePath = NSBundle.mainBundle().pathForResource("after", ofType: "mp3")!
-        let fileURL = NSURL(fileURLWithPath: soundFilePath)
+        let soundFilePath = NSBundle.mainBundle().pathForResource("after", ofType: "wav")
+        let fileURL = NSURL(fileURLWithPath: soundFilePath!)
         
         do {
             audioPlayer = try AVAudioPlayer(contentsOfURL: fileURL)

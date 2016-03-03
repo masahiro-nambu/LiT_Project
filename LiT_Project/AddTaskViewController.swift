@@ -40,6 +40,10 @@ class AddTaskViewController: UIViewController {
         nextButton.hidden = false
     }
     
+    @IBAction func tapScreen(sender: UITapGestureRecognizer) {
+        self.view.endEditing(true)
+    }
+    
     
 
     /*

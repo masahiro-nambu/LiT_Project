@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="アプリタイトル.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="NeZ-rf-hTa">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="appli_title.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="NeZ-rf-hTa">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ytX-hl-La9">
@@ -64,9 +64,13 @@
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="今日の目標を入力" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yu6-nC-pkL">
                                 <rect key="frame" x="79" y="69" width="216" height="46"/>
+                                <gestureRecognizers/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Bold" family="Avenir Next" pointSize="27"/>
                                 <color key="textColor" red="0.91372549020000005" green="0.70196078429999997" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="ygd-JM-fLh" appends="YES" id="hu0-ZM-bYv"/>
+                                </connections>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xF1-wf-uGD">
                                 <rect key="frame" x="103" y="545" width="169" height="57"/>
@@ -107,6 +111,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BZ9-tq-c2O" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="ygd-JM-fLh">
+                    <connections>
+                        <action selector="tapScreen:" destination="nw1-Wc-W6i" id="US7-Ee-fBQ"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="874.5" y="389.5"/>
         </scene>
@@ -249,6 +258,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="アプリタイトル.jpg" width="320" height="480"/>
+        <image name="appli_title.jpg" width="320" height="480"/>
     </resources>
 </document>
